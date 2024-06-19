@@ -1,4 +1,26 @@
 .header {
+    margin-bottom: 40px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 25px;
+    height: 25px;
+}
+
+.logo h2:hover {
+    filter: drop-shadow(0 0 2em #f5d7d7aa);
+    scale: 1.1;
+}
+
+span {
+    margin-left: 150px;
+    
+}

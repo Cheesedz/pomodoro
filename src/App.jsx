@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from '/public/logo.svg'
+import logo from '/public/tomato.svg'
 import Header from './components/Header'
 import './App.css'
 
@@ -29,7 +29,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p> */}
       <Header/>
-      <div>
+      {/* <div>
           <img src={logo} className="logo react" alt="Quizzy logo" />
       </div>
       <h1>Welcome to Quizzy</h1>
@@ -37,7 +37,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           Get Started
         </button>
-      </div>
+      </div> */}
     </>
   )
 }

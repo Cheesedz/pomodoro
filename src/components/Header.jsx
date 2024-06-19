@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
-import menu from '../assets/menu.svg'
+import './Header.css'
 
 function Header() {
-    const [visible, setVisible] = useState(false)
-    return (
-      <>
-        <div>
-            <button className='menu-button'>
-                <image src={menu} alt='menu'/>
-            </button>
+    return <header className='header'>
+        <div className='logo'>
+            <img src='/tomato.svg' className='logo' alt='logo'/>
+            <h2 className='app-name'>
+              Pomodoro
+            </h2>
         </div>
-      </>
-    )
+        <span className='menu'>
+            <button>Report</button>
+            <button>Setting</button>
+            <button>Sign In</button>
+        </span>
+    </header>
 }
 
 export default Header;
