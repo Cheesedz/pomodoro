@@ -1,0 +1,9 @@
+.nav-button button.active {
+    font-weight: bolder;
+    background-color: #af5353;
+}
+
+.nav-button button {
+    margin: 10px;
+}
+
