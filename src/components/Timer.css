@@ -2,7 +2,27 @@
     font-size: 75px;
 }
 
-.timer-button {
+.nav-button button.active {
+    font-weight: bolder;
+    background-color: #af5353;
+}
+
+.nav-button button {
+    margin: 10px;
+}
+
+
+.start-button {
+    width: 300px;
+    height: 80px;
+    background-color: #ffffff;
+    color: #c66969;
+    margin: 10px;
+    font-size: 175%;
+    border-bottom: 7px solid #a8a6a6;
+}
+
+.pause-button {
     width: 300px;
     height: 80px;
     background-color: #ffffff;
