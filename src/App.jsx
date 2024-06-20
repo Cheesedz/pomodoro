@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import logo from '/public/tomato.svg'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           Get Started
         </button>
       </div> */}
+      <Footer/>
     </>
   )
 }
