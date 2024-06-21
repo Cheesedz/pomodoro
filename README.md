@@ -1,8 +1,19 @@
-# React + Vite
+## <p align="center"> Pomodoro App
+<p align="center">  </p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center"> <img src='https://github.com/Cheesedz/pomodoro/assets/113958111/eba45d7f-f8f1-4014-8f14-d18dd8ac4146)' width="480;"> </p>
+<p align="center"> <img src='https://github.com/Cheesedz/pomodoro/assets/113958111/a4cec549-e340-4244-a849-7679202637da'> </p>
 
-Currently, two official plugins are available:
+### About
+- An application for improving your work performance by using the Pomodoro technique
+- Built with ReactJS
+- Compatible with all screens, with both dark mode & light mode
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Website 
+[pomodoro-five-smoky.vercel.app](https://pomodoro-five-smoky.vercel.app/)
+
+### Disclaimer
+All copyrighted assets belong to their respective owners. This project is made for educational purposes and has no means of monetization.
+
+### Contributing
+Contributions are always welcome! Feel free to create a fork of this repository or use the code for any other noncommercial purposes.
