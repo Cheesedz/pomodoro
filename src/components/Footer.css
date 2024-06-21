@@ -13,9 +13,12 @@
     font-size: smaller;
 }
 
-@media (max-width: 735px) {
+@media (max-width: 768px) {
     .footer {
         font-size: smaller;
+        max-width: fit-content;
+        margin: auto;
+        margin-top: 20px;
     }
 
     .copy-right {
@@ -25,5 +28,10 @@
     .footer a img {
         width: 25px;
         height: 25px;;
+    }
+
+    .footer div {
+        max-width: fit-content;
+        margin: auto
     }
 }
