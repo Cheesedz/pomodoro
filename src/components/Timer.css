@@ -90,3 +90,13 @@
       font-size: 0;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .nav-button button.active {
+        background-color: #36a552;
+    }
+
+    .start-button, .pause-button {
+        color: #43bb61;
+    }
+  }

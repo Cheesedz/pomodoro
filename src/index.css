@@ -13,6 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: 'ArialRounded';
+  font-display: inherit;
+  src: url('/unicode.arialr.ttf')
+    format('truetype');
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -58,14 +65,17 @@ button:focus-visible {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #1b0303;
+    color: #ffffff;
+    background-color: #003611;
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #471e1e;
+    background-color: #087230;
+  }
+  .card {
+    background-color: #50ad57;
   }
 }
 
