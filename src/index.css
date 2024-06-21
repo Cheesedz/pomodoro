@@ -68,3 +68,9 @@ button:focus-visible {
     background-color: #471e1e;
   }
 }
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 50%;
+  }
+}

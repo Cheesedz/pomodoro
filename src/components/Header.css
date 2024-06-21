@@ -41,3 +41,38 @@ span button {
 .menu-button img {
     margin-right: 5px;
 }
+
+@media (max-width: 768px) {
+    .menu-button {
+      font-size: 0;
+    }
+
+    .menu {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-button {
+      font-size: 0;
+    }
+
+    .header {
+        display: block;
+        max-width: fit-content;
+        margin: auto;
+    }
+
+    span {
+        max-width: fit-content;
+        margin: auto;
+    }
+
+    .menu {
+        margin-left: 0px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+}

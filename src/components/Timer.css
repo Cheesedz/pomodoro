@@ -30,3 +30,63 @@
     margin: 10px;
     font-size: 175%;
 }
+
+@media (max-width: 775px) {
+    .nav-button button, .menu-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .timer {
+        font-size: 2.5rem;
+    }
+
+    .start-button, .pause-button {
+        padding: 10px 30px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-button button, .menu-button {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+  
+    .timer {
+        font-size: 2.5rem;
+    }
+  
+    .start-button, .pause-button {
+        padding: 10px 30px;
+        font-size: 1rem;
+        max-width: fit-content;
+        max-height: fit-content;
+    }
+  
+    .menu-button {
+      font-size: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-button button, .menu-button {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+  
+    .timer {
+        font-size: 2.2rem;
+    }
+  
+    .start-button, .pause-button {
+        padding: 10px 30px;
+        font-size: 1rem;
+        max-width: fit-content;
+        max-height: fit-content;
+    }
+  
+    .menu-button {
+      font-size: 0;
+    }
+}

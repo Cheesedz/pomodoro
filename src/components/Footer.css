@@ -12,3 +12,18 @@
 .copy-right {
     font-size: smaller;
 }
+
+@media (max-width: 735px) {
+    .footer {
+        font-size: smaller;
+    }
+
+    .copy-right {
+        font-size: x-small;
+    }
+
+    .footer a img {
+        width: 25px;
+        height: 25px;;
+    }
+}
