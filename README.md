@@ -6,7 +6,7 @@
 
 ### About
 - An application for improving your work performance by using the Pomodoro technique
-- Built with ReactJS
+- Built with ReactJS & Vite
 - Compatible with all screens, with both dark mode & light mode
 
 ### Website 
