@@ -5,7 +5,6 @@ import SignIn from './pages/SignIn'
 import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
     <div>
       <Header />
