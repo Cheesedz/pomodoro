@@ -1,18 +1,23 @@
-import Header from './components/Header'
-import Timer from './components/Timer'
-import Footer from './components/Footer'
-import './App.css'
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home'
+import SignIn from './pages/SignIn'
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
-    <>
-      <Header/>
-      <div className='card'>
-        <Timer/>
-      </div>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route index element={<Home />} />
+        {/* <Route path="report" element={<Report />} /> */}
+        <Route path="sign-in" element={<SignIn />} />
+        {/* <Route path="*" element={<NoPage />} /> */}
+      </Routes>
       <Footer/>
-    </>
+    </div>
   )
 }
 
