@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { createClient } from '@supabase/supabase-js'
 import './Header.css'
+import { useSupabase } from '../SupabaseContext';
 
 function Header() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
-    const supabase_url = import.meta.env.VITE_URL;
-    const anon_key = import.meta.env.VITE_ANON_KEY;
-    const supabase = createClient(
-      supabase_url, anon_key
-    )
+    const supabase = useSupabase()
     useEffect(() => {
         const fetchUser = async () => {
           const { data, error } = await supabase.auth.getUser();

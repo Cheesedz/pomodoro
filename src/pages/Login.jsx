@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import './Login.css'
-import { createClient } from '@supabase/supabase-js'
 import { useNavigate } from 'react-router-dom';
+import { useSupabase } from '../SupabaseContext';
 
 function Login() {
     const navigate = useNavigate();
-    const supabase_url = import.meta.env.VITE_URL;
-    const anon_key = import.meta.env.VITE_ANON_KEY;
-    const supabase = createClient(
-      supabase_url, anon_key
-    )
-    console.log(supabase_url, anon_key)
-
+    const supabase = useSupabase();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -55,7 +49,7 @@ function Login() {
                     onChange={handlePasswordChange}/>
                 </div>
                 <div>
-                    <button className='sign-in-button' type='submit'>Login in</button>
+                    <button className='sign-in-button' type='submit'>Login</button>
                 </div>
                 <div className='line-container'>
                     <div className='line'></div>

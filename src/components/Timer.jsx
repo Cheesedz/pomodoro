@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { createClient } from '@supabase/supabase-js'
 import './Timer.css';
+import { useSupabase } from '../SupabaseContext';
 
 function Timer() {
     const [activeButton, setActiveButton] = useState('pomodoro');
@@ -11,11 +11,7 @@ function Timer() {
     const timerIntervalRef = useRef(null);
     const notificationSoundRef = useRef(null);
     const [user, setUser] = useState(null);
-    const supabase_url = import.meta.env.VITE_URL;
-    const anon_key = import.meta.env.VITE_ANON_KEY;
-    const supabase = createClient(
-      supabase_url, anon_key
-    )
+    const supabase = useSupabase()
 
     const handleClick = (buttonType) => {
         setActiveButton(buttonType);
@@ -53,6 +49,15 @@ function Timer() {
       }, [supabase]);
 
     useEffect(() => {
+        const pushData = async () => {
+            const {data, error} = await supabase.from('pomodoro').insert({belong_to: user})
+            if (error) {
+                console.error('Error inserting data: ', error);
+            } else {
+                console.log('Data inserted: ', data);
+            }
+        }
+
         if (timerRunning) {
             timerIntervalRef.current = setInterval(() => {
                 setTimer((prevTimer) => {
@@ -69,9 +74,10 @@ function Timer() {
                         if (activeButton === 'pomodoro') {
                             setPomoCount((prevCount) => prevCount + 1);
                         }
-                        
+                        pushData()
                         console.log(pomoCount)
-                        supabase.from('pomodoro').insert({belong_to: user})
+                        console.log(user)
+                        
                         return 0;
                     }
                 });

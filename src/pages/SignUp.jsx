@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
-import './SignUp.css'
-import { createClient } from '@supabase/supabase-js'
+import React, { useState } from 'react';
+import './SignUp.css';
 import { useNavigate } from 'react-router-dom';
+import { useSupabase } from '../SupabaseContext';
 
 function SignUp() {
     const navigate = useNavigate();
-    const supabase_url = import.meta.env.VITE_URL;
-    const anon_key = import.meta.env.VITE_ANON_KEY;
-    const supabase = createClient(
-      supabase_url, anon_key
-    )
-    console.log(supabase_url, anon_key)
-
+    const supabase = useSupabase();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
