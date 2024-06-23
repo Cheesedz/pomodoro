@@ -9,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
+    max-width: 100%;
 }
 
 .auth-message {
@@ -20,7 +21,4 @@
     overflow: clip;
     display: block;
     box-sizing: border-box;
-    height: 550px;
-    width: 100%;
-    aspect-ratio: auto 560 / 550;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Report.css'
+import BarChart from './BarChart';
 
 function Report() {
     
@@ -14,7 +15,7 @@ function Report() {
                 </div>
                 <div className='auth-message'>* The report is only available when you logged in</div>
                 <div className='chart-container'>
-                    <canvas className='chart'></canvas>
+                    <BarChart className='chart'/>
                 </div>
             </div>
         </div>
