@@ -1,10 +1,43 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { createClient } from '@supabase/supabase-js'
 import './Header.css'
 
 function Header() {
     const navigate = useNavigate();
+    const [user, setUser] = useState(null);
+    const supabase_url = import.meta.env.VITE_URL;
+    const anon_key = import.meta.env.VITE_ANON_KEY;
+    const supabase = createClient(
+      supabase_url, anon_key
+    )
+    useEffect(() => {
+        const fetchUser = async () => {
+          const { data, error } = await supabase.auth.getUser();
+          if (error) {
+            console.error('Error fetching user:', error);
+          } else {
+            console.log('User data:', data);
+            setUser(data);
+          }
+        };
+    
+        fetchUser();
+      }, [supabase]);
 
+    const handleAuthButton = async () => {
+        if (user) {
+            try {
+                await supabase.auth.signOut();
+            } catch (error) {
+                console.error('Error logging out:', error.message);
+            }
+            setUser(null);
+            navigate('/');
+        } else {
+            navigate('/sign-up');
+        }
+    }
     return <header className='header'>
         <span className='logo'
             onClick={() => {
@@ -29,11 +62,9 @@ function Header() {
                 <div>Setting</div>
             </button>
             <button className='menu-button'
-                onClick={() => {
-                    navigate('/sign-in');
-                }}>
+                onClick={handleAuthButton}>
                 <img src='/user-white.png' width={20} height={20}></img>
-                <div>Sign In</div>
+                <div>{user ? 'Logout' : 'Sign Up'}</div>
             </button>
         </span>
     </header>

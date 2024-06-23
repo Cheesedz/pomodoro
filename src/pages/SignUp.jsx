@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import './SignIn.css'
+import './SignUp.css'
 import { createClient } from '@supabase/supabase-js'
 import { useNavigate } from 'react-router-dom';
 
-function SignIn() {
+function SignUp() {
     const navigate = useNavigate();
     const supabase_url = import.meta.env.VITE_URL;
     const anon_key = import.meta.env.VITE_ANON_KEY;
@@ -32,18 +32,17 @@ function SignIn() {
                 email: email,
                 password: password
             })
-            // const { dbError } = await supabase
-            //     .from('user')
-            //     .insert({ 
-            //         userId: data.user.id,
-            //         username: data.user.email,
-            //         account_type: 'MFA'
-            //     })
+            const { dbError } = await supabase
+                .from('user')
+                .insert({ 
+                    username: data.user.email,
+                    uuid: data.user.id
+                })
             console.log(data)
         } catch(e) {
             console.log(e)
         }
-        navigate('/')
+        navigate('/login')
     }
 
     return (
@@ -62,7 +61,7 @@ function SignIn() {
                     onChange={handlePasswordChange}/>
                 </div>
                 <div>
-                    <button className='sign-in-button' type='submit'>Sign in</button>
+                    <button className='sign-in-button' type='submit'>Sign up</button>
                 </div>
                 <div className='line-container'>
                     <div className='line'></div>
@@ -72,17 +71,17 @@ function SignIn() {
                 <div>
                     <button className='sign-in-button'>
                         <img src='/google.png' width={30} height={30} />
-                        <div>Sign in with Google</div>
+                        <div>Sign up with Google</div>
                     </button>
                 </div>
             </div>
         </form>
         <div className='option'>
-            <p>Already have an account?</p>
+            <div>Already have an account?</div>
             <a href='/login'>Login</a>
         </div>
     </>
     )
 }
 
-export default SignIn;
+export default SignUp;

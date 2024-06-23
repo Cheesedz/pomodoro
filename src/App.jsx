@@ -1,7 +1,10 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home'
-import SignIn from './pages/SignIn'
+import Home from './pages/Home';
+import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
+import Report from './pages/Report';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -11,9 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route index element={<Home />} />
-        {/* <Route path="report" element={<Report />} /> */}
-        <Route path="sign-in" element={<SignIn />} />
-        {/* <Route path="*" element={<NoPage />} /> */}
+        <Route path="login" element={<Login />} />
+        <Route path="sign-up" element={<SignUp />} />
+        <Route path="report" element={<Report />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer/>
     </div>

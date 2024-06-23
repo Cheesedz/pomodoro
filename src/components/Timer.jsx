@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createClient } from '@supabase/supabase-js'
 import './Timer.css';
 
 function Timer() {
@@ -9,6 +10,12 @@ function Timer() {
     const [pomoCount, setPomoCount] = useState(0);
     const timerIntervalRef = useRef(null);
     const notificationSoundRef = useRef(null);
+    const [user, setUser] = useState(null);
+    const supabase_url = import.meta.env.VITE_URL;
+    const anon_key = import.meta.env.VITE_ANON_KEY;
+    const supabase = createClient(
+      supabase_url, anon_key
+    )
 
     const handleClick = (buttonType) => {
         setActiveButton(buttonType);
@@ -32,6 +39,20 @@ function Timer() {
     };
 
     useEffect(() => {
+        const fetchUser = async () => {
+          const { data, error } = await supabase.auth.getUser();
+          if (error) {
+            console.error('Error fetching user:', error);
+          } else {
+            console.log('User data:', data);
+            setUser(data.user.id);
+          }
+        };
+    
+        fetchUser();
+      }, [supabase]);
+
+    useEffect(() => {
         if (timerRunning) {
             timerIntervalRef.current = setInterval(() => {
                 setTimer((prevTimer) => {
@@ -50,6 +71,7 @@ function Timer() {
                         }
                         
                         console.log(pomoCount)
+                        supabase.from('pomodoro').insert({belong_to: user})
                         return 0;
                     }
                 });
