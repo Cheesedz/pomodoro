@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import './Report.css'
 import BarChart from './BarChart';
+import Header from '../components/Header';
 
 function Report() {
     
     return (
     <>
+        <Header/>
         <div className='report-card'>
             <h2>Report</h2>
             <div className='report-box'>

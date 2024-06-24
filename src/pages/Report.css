@@ -67,3 +67,9 @@
         font-size: x-small;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .report-card {
+        background-color: #50ad57;
+    }
+}

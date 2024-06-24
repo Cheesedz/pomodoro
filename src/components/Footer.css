@@ -5,6 +5,11 @@
     padding: 1em;
 }
 
+img:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
 .footer a {
     margin-left: 1em;
 }

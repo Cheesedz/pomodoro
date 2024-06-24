@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 import { useSupabase } from '../SupabaseContext';
+import Header from '../components/Header';
 
 function Login() {
     const navigate = useNavigate();
@@ -35,6 +36,7 @@ function Login() {
 
     return (
     <>
+        <Header/>
         <form onSubmit={handleSubmit}>
             <div className='card'>
                 <h2>Login</h2>

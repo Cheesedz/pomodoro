@@ -3,10 +3,32 @@ import { useNavigate } from 'react-router-dom'
 import './Header.css'
 import { useSupabase } from '../SupabaseContext';
 
-function Header() {
+function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime }) {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
+    const [showSettings, setShowSettings] = useState(false);
+    const [pomodoroTime, setPomodoro] = useState(25);
+    const [shortBreakTime, setShortBreak] = useState(5);
+    const [longBreakTime, setLongBreak] = useState(10);
     const supabase = useSupabase()
+
+    const handleSettingChange = (setter) => (e) => {
+        const value = e.target.value;
+        setter(value);
+    }
+
+    const handleSettingClose = () => {
+        setPomodoroTime(pomodoroTime * 60);
+        setShortBreakTime(shortBreakTime * 60);
+        setLongBreakTime(longBreakTime * 60);
+        handleSetting();
+    }
+
+    const handleSetting = () => {
+        setShowSettings(prevState => !prevState);
+        navigate('/home');
+    };
+
     useEffect(() => {
         const fetchUser = async () => {
           const { data, error } = await supabase.auth.getUser();
@@ -51,9 +73,7 @@ function Header() {
                 <div>Report</div>
             </button>
             <button className='menu-button'
-                onClick={() => {
-                    navigate('/setting');
-                }}>
+                onClick={handleSetting}>
                 <img src='config-white.png' width={20} height={20}></img>
                 <div>Setting</div>
             </button>
@@ -63,6 +83,48 @@ function Header() {
                 <div>{user ? 'Logout' : 'Sign Up'}</div>
             </button>
         </span>
+        {showSettings && (
+            <div className='overlay'>
+                <div className='floating-card'>
+                    <h2>Setting</h2>
+                    <div className='setting-container'>
+                        <img src='/clock.png' width={24} height={24}/>
+                        <div className='title'>Timer</div>
+                    </div>
+                    <div className='selector'>
+                        <div className='label'>Pomodoro</div>
+                        <input className='timer-controller' 
+                            type='number' 
+                            min={1} 
+                            max={60} 
+                            defaultValue={25}
+                            onChange={handleSettingChange(setPomodoro)}
+                        />
+                    </div>
+                    <div className='selector'>
+                        <div className='label'>Short Break</div>
+                        <input className='timer-controller' 
+                            type='number' 
+                            min={1} 
+                            max={10} 
+                            defaultValue={5}
+                            onChange={handleSettingChange(setShortBreak)}
+                        />
+                    </div>
+                    <div className='selector'>
+                        <div className='label'>Long Break</div>
+                        <input className='timer-controller' 
+                            type='number' 
+                            min={1} 
+                            max={20} 
+                            defaultValue={10}
+                            onChange={handleSettingChange(setLongBreak)}
+                        />
+                    </div>
+                    <button onClick={handleSettingClose}>Close</button>
+                </div>
+            </div>
+        )}
     </header>
 }
 

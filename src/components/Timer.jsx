@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Timer.css';
 import { useSupabase } from '../SupabaseContext';
 
-function Timer() {
+function Timer({ pomodoroTime, shortBreakTime, longBreakTime}) {
     const [activeButton, setActiveButton] = useState('pomodoro');
     const [buttonText, setButtonText] = useState('START');
-    const [timer, setTimer] = useState(1500);
+    const [timer, setTimer] = useState(pomodoroTime);
     const [timerRunning, setTimerRunning] = useState(false);
     const [pomoCount, setPomoCount] = useState(0);
     const timerIntervalRef = useRef(null);
@@ -16,17 +16,27 @@ function Timer() {
     const handleClick = (buttonType) => {
         setActiveButton(buttonType);
         if (buttonType === 'pomodoro') {
-            setTimer(1500);
+            setTimer(pomodoroTime);
         } else if (buttonType === 'shortBreak') {
-            setTimer(300); 
+            setTimer(shortBreakTime); 
         } else if (buttonType === 'longBreak') {
-            setTimer(600); 
+            setTimer(longBreakTime); 
             setPomoCount(0);
         }
         setTimerRunning(false);
         setButtonText('START');
         console.log('Current button:', activeButton)
     };
+
+    useEffect(() => {
+        if (activeButton === 'pomodoro') {
+          setTimer(pomodoroTime);
+        } else if (activeButton === 'shortBreak') {
+          setTimer(shortBreakTime);
+        } else {
+          setTimer(longBreakTime);
+        }
+      }, [pomodoroTime, shortBreakTime, longBreakTime, activeButton]);
 
     const formatTimer = (timeInSeconds) => {
         const minutes = Math.floor(timeInSeconds / 60);
