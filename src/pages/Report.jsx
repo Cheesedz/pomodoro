@@ -6,8 +6,8 @@ function Report() {
     
     return (
     <>
-        <div className='card'>
-            <div>Report</div>
+        <div className='report-card'>
+            <h2>Report</h2>
             <div className='report-box'>
                 <div className='title-container'>
                     <div className='text'>Focus Hour</div>
@@ -17,6 +17,11 @@ function Report() {
                 <div className='chart-container'>
                     <BarChart className='chart'/>
                 </div>
+                <div className='title-container'>
+                    <div className='text'>Total Hour</div>
+                    <div className='line'></div>
+                </div>
+                <div className='text'>Total: {51} Hour</div>
             </div>
         </div>
     </>

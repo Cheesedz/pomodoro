@@ -38,12 +38,12 @@ function Login() {
         <form onSubmit={handleSubmit}>
             <div className='card'>
                 <h2>Login</h2>
-                <label>Email</label>
+                <div className='label'>Email</div>
                 <div className='auth-box'>
                     <input type='text' placeholder='Email' value={email}
                     onChange={handleEmailChange} />
                 </div>
-                <label>Password</label>
+                <div className='label'>Password</div>
                 <div className='auth-box'>
                     <input type='password' placeholder='Password' value={password}
                     onChange={handlePasswordChange}/>

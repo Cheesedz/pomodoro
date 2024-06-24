@@ -8,17 +8,62 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0;
+    margin: 10px 0;
     max-width: 100%;
+    font-weight: bold;
 }
 
 .auth-message {
     text-align: left;
+    font-size: small;
+}
+
+.text {
+    text-align: left;
 }
 
 .chart {
-    overflow-clip-margin: content-box;
     overflow: clip;
     display: block;
     box-sizing: border-box;
+    margin: auto;
+}
+
+.report-card {
+    max-width: 80%;
+    background-color: #c66969;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .text {
+        font-size: 0.8rem;
+    }
+
+    .line {
+        width: 75%;
+    }
+
+    .auth-message {
+        font-size: x-small;
+    }
+}
+
+@media (max-width: 576px) {
+    .text {
+        font-size: 0.6rem;
+    }
+
+    .line {
+        width: 60%;
+    }
+
+    .auth-message {
+        font-size: x-small;
+    }
 }
