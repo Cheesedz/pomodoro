@@ -1,16 +1,21 @@
 ## <p align="center"> Pomodoro App
 <p align="center">  </p>
 
-<p align="center"> <img src='https://github.com/Cheesedz/pomodoro/assets/113958111/eba45d7f-f8f1-4014-8f14-d18dd8ac4146)' width="480;"> </p>
-<p align="center"> <img src='https://github.com/Cheesedz/pomodoro/assets/113958111/a4cec549-e340-4244-a849-7679202637da'> </p>
+<p align="center"> <img src='https://github.com/Cheesedz/pomodoro/assets/113958111/ee16f985-3400-4343-a797-49a66df51711' width="560;"> </p>
+<p align="center"> <img src='https://github.com/Cheesedz/pomodoro/assets/113958111/9179aca9-bd36-437a-a7eb-d763e9959569')> </p>
 
 ### About
 - An application for improving your work performance by using the Pomodoro technique
-- Built with ReactJS & Vite
+- Built with ReactJS, Vite & Supabase as backend
 - Compatible with all screens, with both dark mode & light mode
 
-### Website 
+### Deployment 
 [pomodoro-five-smoky.vercel.app](https://pomodoro-five-smoky.vercel.app/)
+
+### Resources
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Supabase](https://supabase.com/)
 
 ### Disclaimer
 All copyrighted assets belong to their respective owners. This project is made for educational purposes and has no means of monetization.
