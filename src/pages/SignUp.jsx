@@ -40,6 +40,24 @@ function SignUp() {
         navigate('/login')
     }
 
+    const handleOAuth = async () => {
+        try {
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: 'google',
+                options: {
+                    redirectTo: 'https://tpsuwflkyyzqgdkqexew.supabase.co/auth/v1/callback'
+                }
+            })
+            if (error) {
+                console.log(error)
+            } else {
+                console.log(data)
+            }
+        } catch(e) {
+            console.log(e)
+        }
+    }
+
     return (
     <>
         <Header/>
@@ -65,7 +83,7 @@ function SignUp() {
                     <div className='line'></div>
                 </div>
                 <div>
-                    <button className='sign-in-button'>
+                    <button className='sign-in-button' onClick={handleOAuth}>
                         <img src='/google.png' width={30} height={30} />
                         <div>Sign up with Google</div>
                     </button>
