@@ -3,14 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import './Header.css'
 import { useSupabase } from '../SupabaseContext';
 
-function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime }) {
+function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime, user }) {
     const navigate = useNavigate();
-    const [user, setUser] = useState(null);
     const [showSettings, setShowSettings] = useState(false);
     const [pomodoroTime, setPomodoro] = useState(25);
     const [shortBreakTime, setShortBreak] = useState(5);
     const [longBreakTime, setLongBreak] = useState(10);
+    const [currentUser, setCurrentUser] = useState(user);
     const supabase = useSupabase()
+
+    console.log('Current user in header: ', currentUser)
 
     const handleSettingChange = (setter) => (e) => {
         const value = e.target.value;
@@ -29,20 +31,6 @@ function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime }) {
         navigate('/home');
     };
 
-    useEffect(() => {
-        const fetchUser = async () => {
-          const { data, error } = await supabase.auth.getUser();
-          if (error) {
-            console.error('Error fetching user:', error);
-          } else {
-            console.log('User data:', data);
-            setUser(data);
-          }
-        };
-    
-        fetchUser();
-      }, [supabase]);
-
     const handleAuthButton = async () => {
         if (user) {
             try {
@@ -50,10 +38,10 @@ function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime }) {
             } catch (error) {
                 console.error('Error logging out:', error.message);
             }
-            setUser(null);
+            setCurrentUser(null);
             navigate('/');
         } else {
-            navigate('/sign-up');
+            navigate('/login');
         }
     }
     return <header className='header'>
@@ -80,7 +68,7 @@ function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime }) {
             <button className='menu-button'
                 onClick={handleAuthButton}>
                 <img src='/user-white.png' width={20} height={20}></img>
-                <div>{user ? 'Logout' : 'Sign Up'}</div>
+                <div>{currentUser ? 'Logout' : 'Login'}</div>
             </button>
         </span>
         {showSettings && (

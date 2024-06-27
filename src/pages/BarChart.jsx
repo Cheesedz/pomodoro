@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { useSupabase } from '../SupabaseContext';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = () => {
+const BarChart = ({ user }) => {
+  const [currentUser, setCurrentUser] = useState(user);
   const data = {
     labels: ['Mondy', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     datasets: [
@@ -30,6 +32,19 @@ const BarChart = () => {
       },
     },
   };
+
+  const supabase = useSupabase()
+  useEffect(() => async () => {
+    const { count, error } = await supabase
+      .from('pomodoro')
+      .select()
+      // .eq('pomodoro.belong_to', currentUser)
+    if (error) {
+      console.error('error', error)
+    } else {
+      console.log('count', count)
+    }
+  });
 
   return <Bar data={data} options={options} />;
 };
