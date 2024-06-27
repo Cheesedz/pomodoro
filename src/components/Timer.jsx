@@ -60,7 +60,13 @@ function Timer({ pomodoroTime, shortBreakTime, longBreakTime}) {
 
     useEffect(() => {
         const pushData = async () => {
-            const {data, error} = await supabase.from('pomodoro').insert({belong_to: user})
+            const now = new Date();
+            const timestamp = now.toISOString().split('T')[0];
+
+            const { data, error } = await supabase.from('pomodoro').insert({
+                belong_to: user,
+                created_at: timestamp
+            });
             if (error) {
                 console.error('Error inserting data: ', error);
             } else {
