@@ -14,7 +14,6 @@
 }
 
 .auth-message {
-    text-align: left;
     font-size: small;
 }
 
@@ -23,14 +22,27 @@
 }
 
 .chart {
-    overflow: clip;
     display: block;
     box-sizing: border-box;
     margin: auto;
+    max-width: 100%;
+    height: auto;
 }
 
+.chart-container {
+    position: relative;
+ }
+
+ @media (min-width: 768px) {
+    #canvas-container {
+        height: auto;
+        width: auto;
+    }
+ }
+
 .report-card {
-    max-width: 80%;
+    max-width: 85%;
+    /* min-height: 100%; */
     background-color: #c66969;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -42,7 +54,7 @@
 
 @media (max-width: 768px) {
     .text {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
 
     .line {
@@ -56,7 +68,7 @@
 
 @media (max-width: 576px) {
     .text {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 
     .line {

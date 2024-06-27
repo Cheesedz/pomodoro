@@ -28,7 +28,16 @@ function Home() {
   }, [supabase]);
 
   if (loading) {
-    return <h1 className='loading'>Loading...</h1>;
+    return <>
+    <span className='logo'
+        onClick={() => {
+            navigate('/');
+        }}>
+        <img src='/tomato.svg' width={30} height={30}/>
+        <div className='app-name'>Pomodoro</div>
+    </span>
+    <h1 className='loading'>Loading...</h1>
+    </>
   }
 
   return (

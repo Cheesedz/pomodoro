@@ -29,7 +29,16 @@ function App() {
   }, [supabase]);
 
   if (loading) {
-    return <h1 className='loading'>Loading...</h1>;
+    return <>
+    <span className='logo'
+        onClick={() => {
+            navigate('/');
+        }}>
+        <img src='/tomato.svg' width={30} height={30}/>
+        <div className='app-name'>Pomodoro</div>
+    </span>
+    <h1 className='loading'>Loading...</h1>
+    </>
   }
 
   return (
@@ -39,7 +48,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
-        <Route path="report" element={<Report user = {user}/>} />
+        <Route path="report" element={<Report/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer/>

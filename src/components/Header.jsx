@@ -27,8 +27,8 @@ function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime, user }) 
     }
 
     const handleSetting = () => {
+        navigate('/');
         setShowSettings(prevState => !prevState);
-        navigate('/home');
     };
 
     const handleAuthButton = async () => {

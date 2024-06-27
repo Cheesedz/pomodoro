@@ -1,14 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Report.css'
 import BarChart from './BarChart';
 import Header from '../components/Header';
+import { useSupabase } from '../SupabaseContext';
 
-function Report({ user }) {
-    const [currentUser, setCurrentUser] = useState(user);
-    console.log('Current user in report: ', currentUser)
+function Report() {
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const supabase = useSupabase();
+
+    useEffect(() => {
+        const fetchUser = async () => {
+          const { data, error } = await supabase.auth.getUser();
+            if (error) {
+              console.error('Error fetching user:', error);
+            } else {
+              console.log('User data:', data);
+              setCurrentUser(data.user.id);
+            }
+            setLoading(false);
+          };
+    
+          fetchUser();
+      }, [supabase]);
+
+    if (loading) {
+        return <>
+        <span className='logo'
+            onClick={() => {
+                navigate('/');
+            }}>
+            <img src='/tomato.svg' width={30} height={30}/>
+            <div className='app-name'>Pomodoro</div>
+        </span>
+        <h1 className='loading'>Loading...</h1>
+        </>
+      }
+    
     return (
     <>
-        <Header user={user}/>
+        <Header user={currentUser}/>
         <div className='report-card'>
             <h2>Report</h2>
             <div className='report-box'>
@@ -24,18 +55,14 @@ function Report({ user }) {
                 
                 {/* <div className='auth-message'>* The report is only available when you logged in</div> */}
                 <div className='chart-container'>
-                    {currentUser ? <BarChart className='chart' user={currentUser}/> : <div className='auth-message'>* The report is only available when you logged in</div>}
-                </div>
-                {currentUser ? (
-                    <>
-                        <div className='title-container'>
-                            <div className='text'>Total Hour</div>
-                            <div className='line'></div>
+                    {currentUser ? 
+                        <BarChart className='chart' user={currentUser}/> 
+                        : <div className='auth-message'>
+                            * The report is only available when you logged in <br/>
+                            Please login to see your report
                         </div>
-                        <div className='text'>Total: {51} Hour</div>
-                    </>
-                    ) : null
-                }
+                    }
+                </div>
             </div>
         </div>
     </>
