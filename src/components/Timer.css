@@ -1,52 +1,22 @@
 .timer {
-    font-size: 100px;
-    font-weight: bold;
+    @apply font-bold text-xl_8
 }
 
 .nav-button button.active {
-    font-weight: bolder;
-    background-color: #af5353;
+    @apply font-bold bg-carrot
 }
 
 .nav-button button {
-    margin: 10px;
-    padding: 10px 10px;
+    @apply m-2.5 px-2.5
 }
 
 
 .start-button {
-    width: 300px;
-    height: 80px;
-    background-color: #ffffff;
-    color: #c66969;
-    margin: 10px;
-    font-size: 175%;
-    border-bottom: 7px solid #a8a6a6;
+    @apply w-80 h-20 m-2.5 bg-white text-xl border-b-8 border-gray-300 text-carrot
 }
 
 .pause-button {
-    width: 300px;
-    height: 80px;
-    background-color: #ffffff;
-    color: #c66969;
-    margin: 10px;
-    font-size: 175%;
-}
-
-@media (max-width: 775px) {
-    .nav-button button, .menu-button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-
-    .timer {
-        font-size: 5rem;
-    }
-
-    .start-button, .pause-button {
-        padding: 10px 30px;
-        font-size: 1.2rem;
-    }
+    @apply w-80 h-20 m-2.5 bg-white text-xl text-carrot
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,79 @@
+.header {
+    @apply flex items-center justify-between border-b-2 p-4 border-rose-800 dark:border-green-900 m-auto
+}
+
+.logo {
+    @apply flex items-center h-fit
+}
+
+.app-name {
+    @apply ml-1.5 font-bold text-xl h-8 mb-1
+}
+
+.menu {
+    @apply ml-40 flex gap-2.5
+}
+
+.menu-button {
+    @apply flex items-center
+}
+
+.menu-button img {
+    @apply mr-1.5
+}
+
+.floating-card {
+    @apply w-2/5 p-5 bg-red-400 rounded-lg z-50
+}
+
+.overlay {
+    @apply fixed flex top-0 left-0 w-full h-full bg-overlay justify-center items-center z-50
+}
+
+.setting-container {
+    @apply flex items-center font-bold
+}
+
+.setting-container img {
+    @apply mr-2 opacity-50
+}
+
+.label {
+    @apply text-left
+}
+
+.selector {
+    @apply w-3/4 m-auto mb-5
+}
+
+.timer-controller {
+    @apply rounded-md bg-stone-50 text-base p-2.5 text-slate-600 w-11/12 box-border
+}
+
+@media (max-width: 768px) {
+    .menu {
+        @apply ml-20
+    }
+
+    .menu-button img {
+        @apply mr-0
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        @apply block w-fit m-auto
+    }
+
+    span {
+        @apply w-fit m-auto
+    }
+
+    .menu {
+        @apply ml-0
+    }
+
+    .logo {
+        @apply mb-2.5
+    }
+}

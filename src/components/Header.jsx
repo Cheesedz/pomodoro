@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './Header.css'
+import '../styles/Header.css'
 import { useSupabase } from '../SupabaseContext';
 
 function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime, user }) {
@@ -74,7 +74,7 @@ function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime, user }) 
         {showSettings && (
             <div className='overlay'>
                 <div className='floating-card'>
-                    <h2>Setting</h2>
+                    <div className='app-name'>Setting</div>
                     <div className='setting-container'>
                         <img src='/clock.png' width={24} height={24}/>
                         <div className='title'>Timer</div>

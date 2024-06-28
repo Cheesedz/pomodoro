@@ -1,0 +1,35 @@
+.footer {
+    @apply p-4 mt-10 border-t-2 border-rose-800 dark:border-green-900 items-center
+}
+
+img:hover {
+    @apply hover:opacity-70 delay-200
+}
+
+.copy-right {
+    @apply text-sm
+}
+
+.author {
+    @apply text-base
+}
+
+@media (max-width: 768px) {
+    .footer {
+        @apply p-4 mt-10 m-auto
+    }
+
+    .author {
+        @apply text-sm
+    }
+
+    .copy-right {
+        @apply text-xs
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        @apply p-4 mt-10 items-center w-fit m-auto
+    }
+}
