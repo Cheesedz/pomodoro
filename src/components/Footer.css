@@ -1,22 +1,18 @@
-.footer {
+/* .footer {
     align-items: center;
     border-top: 2px solid #9e4444;
     margin-top: 40px;
     padding: 1em;
-}
+} */
 
-img:hover {
+/* img:hover {
     opacity: 0.7;
     transition: 0.3s;
-}
+} */
 
-.footer a {
-    margin-left: 1em;
-}
-
-.copy-right {
+/* .copy-right {
     font-size: smaller;
-}
+} */
 
 @media (max-width: 768px) {
     .footer {
