@@ -63,7 +63,7 @@ function SignUp() {
         <Header/>
         <form onSubmit={handleSubmit}>
             <div className='card'>
-                <h2>Create account</h2>
+                <div className='app-name'>Sign up</div>
                 <div className='label'>Email</div>
                 <div className='auth-box'>
                     <input type='text' placeholder='Email' value={email}

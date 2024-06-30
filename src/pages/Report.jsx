@@ -41,7 +41,7 @@ function Report() {
     <>
         <Header user={currentUser}/>
         <div className='report-card'>
-            <h2>Report</h2>
+            <div className='app-name'>Report</div>
             <div className='report-box'>
                 {currentUser ? (
                     <>

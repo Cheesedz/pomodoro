@@ -3,67 +3,55 @@
 }
 
 .nav-button button.active {
-    @apply font-bold bg-carrot
+    @apply font-bold bg-carrot dark:bg-green-700
 }
 
 .nav-button button {
-    @apply m-2.5 px-2.5
+    @apply m-2.5 px-2.5 dark:bg-dark-green
 }
 
 
 .start-button {
-    @apply w-80 h-20 m-2.5 bg-white text-xl border-b-8 border-gray-300 text-carrot
+    @apply w-80 h-20 m-2.5 bg-white text-xl border-b-8 border-gray-300 text-carrot dark:text-dark-green
 }
 
 .pause-button {
-    @apply w-80 h-20 m-2.5 bg-white text-xl text-carrot
+    @apply w-80 h-20 m-2.5 bg-white text-xl text-carrot dark:text-dark-green
 }
 
 @media (max-width: 768px) {
     .nav-button button, .menu-button {
-      font-size: 0.9rem;
-      padding: 8px 15px;
+        @apply text-base px-2.5 py-2 m-2
     }
   
     .timer {
-        font-size: 4rem;
+        @apply text-xl_4
     }
   
     .start-button, .pause-button {
-        padding: 10px 30px;
-        font-size: 1rem;
-        max-width: fit-content;
-        max-height: fit-content;
+        @apply text-base px-16 py-3.5 max-w-fit h-fit
     }
   
     .menu-button {
-      font-size: 0;
+        @apply text-none
     }
 }
 
 @media (max-width: 576px) {
-    .nav-button button, .menu-button {
-      font-size: 0.9rem;
-      padding: 8px 15px;
+    .nav-button button {
+        @apply text-base px-2 py-1.5
     }
-  
+
     .timer {
-        font-size: 3rem;
+        @apply text-xl_3
     }
   
     .start-button, .pause-button {
-        padding: 10px 30px;
-        font-size: 1rem;
-        max-width: fit-content;
-        max-height: fit-content;
-    }
-  
-    .menu-button {
-      font-size: 0;
+        @apply text-base px-10 py-2 max-w-fit h-fit
     }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     .nav-button button.active {
         background-color: #36a552;
     }
@@ -71,4 +59,4 @@
     .start-button, .pause-button {
         color: #43bb61;
     }
-}
+} */

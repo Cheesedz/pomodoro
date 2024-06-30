@@ -70,7 +70,7 @@ const BarChart = ({ user }) => {
         <div className='line'></div>
     </div>
     <div className='text'>Total: {totalHour} Hours</div>
-    <div className='text'>Average focus hours: {totalHour / dates.length} Hour/Day</div>
+    <div className='text'>Average focus hours: {(totalHour / dates.length).toFixed(2)} Hour/Day</div>
   </>
 };
 
