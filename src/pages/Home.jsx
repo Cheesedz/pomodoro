@@ -1,6 +1,7 @@
 import './Home.css'
 import Timer from '../components/Timer'
 import Header from '../components/Header'
+import Loading from '../components/Loading'
 import { useState, useEffect } from 'react'
 import { useSupabase } from '../SupabaseContext';
 
@@ -29,14 +30,7 @@ function Home() {
 
   if (loading) {
     return <>
-    <span className='logo'
-        onClick={() => {
-            navigate('/');
-        }}>
-        <img src='/tomato.svg' width={30} height={30}/>
-        <div className='app-name'>Pomodoro</div>
-    </span>
-    <h1 className='loading'>Loading...</h1>
+      <Loading/>
     </>
   }
 

@@ -39,8 +39,6 @@ function Header({ setPomodoroTime, setShortBreakTime, setLongBreakTime, user }) 
                 console.error('Error logging out:', error.message);
             }
             setCurrentUser(null);
-            navigate('/');
-        } else {
             navigate('/login');
         }
     }

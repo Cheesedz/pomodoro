@@ -1,4 +1,5 @@
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
@@ -30,21 +31,14 @@ function App() {
 
   if (loading) {
     return <>
-    <span className='logo'
-        onClick={() => {
-            navigate('/');
-        }}>
-        <img src='/tomato.svg' width={30} height={30}/>
-        <div className='app-name'>Pomodoro</div>
-    </span>
-    <h1 className='loading'>Loading...</h1>
+      <Loading />
     </>
   }
 
   return (
     <div>
       <Routes>
-        <Route path="/home" element={<Home />}/>
+        <Route path="/" element={<Home />}/>
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />

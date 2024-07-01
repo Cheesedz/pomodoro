@@ -1,0 +1,7 @@
+.logo {
+    @apply flex flex-col m-auto;
+}
+
+.container {
+    @apply flex flex-col items-center justify-center h-screen;
+  }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignUp.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSupabase } from '../SupabaseContext';
 import Header from '../components/Header';
 
@@ -92,7 +92,7 @@ function SignUp() {
         </form>
         <div className='option'>
             <div>Already have an account?</div>
-            <a href='/login'>Login</a>
+            <Link to='/login'>Login</Link>
         </div>
     </>
     )

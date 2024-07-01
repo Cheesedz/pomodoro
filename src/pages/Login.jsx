@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Login.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSupabase } from '../SupabaseContext';
 import Header from '../components/Header';
 
@@ -86,7 +86,8 @@ function Login() {
         </form>
         <div className='option'>
             <div>Don't have an account?</div>
-            <a href='/sign-up'>Sign up</a>
+            {/* <a href='/sign-up'>Sign up</a> */}
+            <Link to='/sign-up'>Sign up</Link>
         </div>
     </>
     )
