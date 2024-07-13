@@ -6,7 +6,7 @@
 
 ### About
 - An application for improving your work performance by using the Pomodoro technique
-- Built with ReactJS, Vite & Supabase as backend
+- Built with ReactJS, Vite, TailwindCSS & Supabase as backend
 - Compatible with all screens, with both dark mode & light mode
 
 ### Deployment 
@@ -16,6 +16,7 @@
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Supabase](https://supabase.com/)
+- [TailwindCSS](https://tailwindcss.com/)
 
 ### Disclaimer
 All copyrighted assets belong to their respective owners. This project is made for educational purposes and has no means of monetization.
